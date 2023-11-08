@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>plant2</title>
+        <title>plantlist</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -21,7 +21,7 @@
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
+       
           <h3>ThePlantGallery<h3>
         </a>
       </div>
@@ -48,7 +48,7 @@
     @foreach($plantlist as $plantlist)
         <li class="flex justify-between gap-x-6 py-5">
             <div class="flex items-center">
-                <img class="h-20 w-20 flex-none rounded-full bg-gray-50" src="{{ $plantlist->image_url }}"  alt="">
+            <img class="h-20 w-20 flex-none rounded-full bg-gray-50" src="{{ asset($plantlist->image_url) }}" alt="">
                 <div class="ml-4">
                     <p class="text-sm font-semibold leading-6 text-gray-900">
                     {{ $plantlist->name}}
@@ -56,12 +56,12 @@
                     <p class="mt-1 text-xs leading-5 text-gray-500 max-w-xs">{{ $plantlist->description}}</p>
                 </div>
             </div>
+           
+
         </li>
         @endforeach
     </ul>
 </div>
-
-
 
 
 </body>
