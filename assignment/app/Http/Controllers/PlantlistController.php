@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\plantlist; 
 class PlantlistController extends Controller
@@ -35,15 +36,33 @@ class PlantlistController extends Controller
      */
     public function store(Request $request)
     {
-       
+          $validator = Validator::make($request->all(),[
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+        ]);
+    
 
-        $newPlant = new plantlist;
-        $newPlant->name =$request->name;
-        $newPlant->description= $request->description;
-        $newPlant->image_url=$request->image_url;
+        if ($validator->fails()){
+            return redirect('/plantlistadmin')
+            ->with('error','validation failed')
+            ->withErrors($validator)
+            ->withInput();
+        }
+        $newPlant = new Plantlist;
+        $newPlant->name = $request->name;
+        $newPlant->description = $request->description;
+    
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/images');
+            $newPlant->image_url = str_replace('public/', 'storage/', $imagePath);
+        }
+    
         $newPlant->save();
-        return redirect('/plantlist');
+    
+        return redirect('/plantlist')->with('success', 'Plant created successfully!');
     }
+    
 
     /**
      * Display the specified resource.
@@ -65,16 +84,22 @@ class PlantlistController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Plantlist $plantlist, Request $request) 
-    {
-        $data = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'image_url' => 'required',
-        ]);
-        
-        $plantlist->update($data);
-        return redirect('/plantlist');
+{
+    $data = $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+    ]);
+
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('public/images');
+        $data['image_url'] = str_replace('public/', 'storage/', $imagePath);
     }
+
+    $plantlist->update($data);
+    return redirect('/plantlist');
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -86,6 +111,11 @@ class PlantlistController extends Controller
     }
 
  
+
+
+
+//API
+
 /**
  *   @return JSON $plantlist
  * 

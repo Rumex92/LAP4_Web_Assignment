@@ -16,7 +16,7 @@
 
     </head>
 
-    <body style="background-color: beige;">
+    <body style="background-color: #E5E0D8;">
     <header class="absolute inset-x-0 top-0 z-50">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
@@ -36,6 +36,7 @@
     </nav>
     
 <br>
+
 <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 
 <div class="form">
@@ -66,18 +67,18 @@
 
 </div>
 <br>
-<div class="sm:col-span-4">
-    <label for="image_url" class="block text-sm font-medium leading-6 text-gray-900">Image URL</label>
-    <div class="mt-2">
-        <input type="text" name="image_url" id="image_url" value="{{$plantlist->image_url}}"  class="block w-full border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-    </div>
-</div>
+                    <div class="sm:col-span-4">
+                        <label for="image" class="block text-sm font-medium leading-6 text-gray-900">Image</label>
+                        <div class="mt-2">
+                            <input type="file" name="image" id="image" class="block w-full border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
 
 
         <br>
         
         <div class="mt-6 flex items-center justify-end gap-x-6">
-                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
+                <button type="submit" style="background-color: #B3B792;"class="rounded-md  px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
               </div>
               
 </form>

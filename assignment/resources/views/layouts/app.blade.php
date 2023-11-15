@@ -1,4 +1,19 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>welcome</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+        <!-- Styles -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
     
     <body style="background-color: beige;">
     
@@ -55,24 +70,10 @@
       </div>
     </div>
   </header>
- @section('content')
+
   <div class="relative isolate px-6 pt-14 lg:px-8">
-    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-    </div>
-    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-      
-      <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Indoor Plants & Flowers</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Can't find a picture of your house plant? You can use the contact page and let me know you need help with an indoor house plant identification. I will do my best to help you out. Hope you find the picture of your indoor house plant here. Thanks for visiting!.</p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a href="#" class="rounded-md" style="background-color: #89A676; color: white; padding: 10px 20px; text-decoration: none;">Get started</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </div>
-    
-  </div>
+    @yield('content')
 </div>
-@endsection
+
     </body>
 </html>

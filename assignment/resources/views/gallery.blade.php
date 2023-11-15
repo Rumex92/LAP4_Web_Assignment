@@ -15,7 +15,7 @@
 
     </head>
 
-    <body style="background-color: beige;">
+    <body style="background-color: #E5E0D8;">
     
   <header class="absolute inset-x-0 top-0 z-50">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
