@@ -19,6 +19,7 @@ class PlantlistController extends Controller
 
         return view('plantlist',[
             'plantlist'=> $plantlist
+
         ]);
         
     }
